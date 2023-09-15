@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 
 env:
-  NODE_VERSION: 18
+  NODE_VERSION: 16
   LOCKFILE_PATH: ./package-lock.json
   PACKAGE_MANAGER: npm
 
@@ -22,7 +22,6 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache-dependency-path: ${{ env.LOCKFILE_PATH }}
           cache: ${{ env.PACKAGE_MANAGER }}
-      - run: npm install
       - run: npm run check-format
   build:
     runs-on: ubuntu-latest
